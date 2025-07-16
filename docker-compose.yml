@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  selenium-tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: selenium-test-runner
+    volumes:
+      - ./output:/app/output  # maps test reports & screenshots to your host
+    environment:
+      - CHROME_BIN=/usr/bin/google-chrome
+    stdin_open: true
+    tty: true
